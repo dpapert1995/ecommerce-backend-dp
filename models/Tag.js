@@ -1,12 +1,17 @@
+// Requires sequelize
 const { Model, DataTypes } = require('sequelize');
-
+// Requires connection to sequelize
 const sequelize = require('../config/connection.js');
-
+// Initializes Tag model
 class Tag extends Model {}
 
 Tag.init(
   {
-    // define columns
+     // Defines tag_name column
+     tag_name: {
+      type: DataTypes.STRING,
+      allowNull: false
+  }
   },
   {
     sequelize,

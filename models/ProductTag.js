@@ -1,6 +1,9 @@
-// Requires and extensions
+// Requires sequelize
 const { Model, DataTypes } = require('sequelize');
+const { INITIALLY_DEFERRED } = require('sequelize/types/lib/deferrable');
+// Requires connection to sequelize
 const sequelize = require('../config/connection');
+// Initializes ProductTag Model
 class ProductTag extends Model {}
 
 ProductTag.init(
