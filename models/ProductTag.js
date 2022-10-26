@@ -1,12 +1,12 @@
 // Requires sequelize
 const { Model, DataTypes } = require('sequelize');
-const { INITIALLY_DEFERRED } = require('sequelize/types/lib/deferrable');
 // Requires connection to sequelize
 const sequelize = require('../config/connection');
 // Initializes ProductTag Model
 class ProductTag extends Model {}
 
 ProductTag.init(
+  {
     // Defines product_id column
      // define an id column
      id: {
@@ -21,17 +21,21 @@ ProductTag.init(
     // Set to not null
     allowNull: false,
     // Set primary key
-    primaryKey: true,
+     // RAN INTO ERROR: Invalid Instance Definition, only one autoincrement field allowed.
+    // primaryKey: true,
     // Turns on auto increment
-    autoIncrement: true
+     // RAN INTO ERROR: Invalid Instance Definition, only one autoincrement field allowed.
+    // autoIncrement: true
     },
       // Defines tag_id column
   tag_id: {
     type: DataTypes.INTEGER,
     references: {
       model: "tag",
-      key: "id"
-    allowNull: false
+      key: "id",
+     // allowNull: false
+    }
+  },
   },
   {
     sequelize,

@@ -31,7 +31,7 @@ Product.init(
   // Defines stock column
   stock: {
       type: DataTypes.INTEGER,
-      allowNull: false
+      allowNull: false,
       defaultValue: 10,
       validate: {
         isNumeric: true
@@ -45,12 +45,14 @@ Product.init(
       references: {
         model: "category",
         key: "id"
+      },
       // Set to not null
-      allowNull: false,
+      // allowNull: false,
       // Set primary key
-      primaryKey: true,
+      // primaryKey: true,
       // Turns on auto increment
-      autoIncrement: true
+      // RAN INTO ERROR: Invalid Instance Definition, only one autoincrement field allowed.
+      // autoIncrement: true
   }
   },
   {
